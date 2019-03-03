@@ -1,0 +1,17 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  App\Application\User\CreateUser\CreateUser: '@app.application.user.create_user.create_user'
+  app.application.user.create_user.create_user:
+    class: App\Application\User\CreateUser\CreateUser
+    arguments:
+      - "@app.infrastructure.persistence.model.user.user_in_file_repository"
+      -
+  App\Application\User\DeleteUser\DeleteUser: '@app.application.user.delete_user.delete_user'
+  app.application.user.delete_user.delete_user:
+    class: App\Application\User\DeleteUser\DeleteUser
+    arguments:
+      - "@app.infrastructure.persistence.model.user.user_in_file_repository"

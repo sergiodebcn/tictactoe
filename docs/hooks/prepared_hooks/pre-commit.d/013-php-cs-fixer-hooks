@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+php bin/php-cs-fixer fix --dry-run --using-cache=no --rules=@PSR1,@PSR2,@Symfony --verbose tests
+php bin/php-cs-fixer fix --dry-run --using-cache=no --rules=@PSR1,@PSR2,@Symfony --verbose src
+

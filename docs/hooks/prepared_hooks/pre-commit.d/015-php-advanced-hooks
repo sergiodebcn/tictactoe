@@ -1,0 +1,2 @@
+#!/bin/bash
+    bin/phpstan analyse -l max --no-progress -c config/phpstan/phpstan.neon src/ tests/

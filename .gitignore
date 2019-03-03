@@ -1,0 +1,30 @@
+.idea
+.DS_Store
+coverage/*
+metrics/*
+###> symfony/framework-bundle ###
+/.env.local
+/.env.*.local
+/var/*
+/vendor/
+###< symfony/framework-bundle ###
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+/bin/*
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> docker-sync###
+/.docker-sync/daemon.log
+/.docker-sync/daemon.pid
+###< docker-sync ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.result.cache
+###< phpunit/phpunit ###

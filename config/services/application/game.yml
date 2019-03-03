@@ -1,0 +1,25 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  App\Application\Game\CreateGame\CreateGame: '@app.application.game.create_game.create_game'
+  app.application.game.create_game.create_game:
+    class: App\Application\Game\CreateGame\CreateGame
+    arguments:
+      - "@app.infrastructure.persistence.model.game.game_in_file_repository"
+      - "@app.infrastructure.persistence.model.user.user_in_file_repository"
+
+  App\Application\Game\GetGame\GetGame: '@app.application.game.get_game.get_game'
+  app.application.game.get_game.get_game:
+    class: App\Application\Game\GetGame\GetGame
+    arguments:
+      - "@app.infrastructure.persistence.model.game.game_in_file_repository"
+
+  App\Application\Game\UpdateGameWithMove\UpdateGameWithMove: '@app.application.game.update_game_with_move.update_game_with_move'
+  app.application.game.update_game_with_move.update_game_with_move:
+    class: App\Application\Game\UpdateGameWithMove\UpdateGameWithMove
+    arguments:
+      - "@app.infrastructure.persistence.model.game.game_in_file_repository"
+

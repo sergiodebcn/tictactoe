@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+php bin/phpcs -s --standard=PSR1,PSR2 tests
+php bin/phpcs -s --standard=PSR1,PSR2 src
+

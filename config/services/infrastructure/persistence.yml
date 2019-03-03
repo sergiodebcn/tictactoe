@@ -1,0 +1,15 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  app.infrastructure.persistence.model.user.user_in_file_repository:
+    class: App\Infrastructure\Persistence\Model\User\UserInFileRepository
+    arguments:
+      - "%kernel.root_dir%/Infrastructure/Persistence/LocalData/User/data.json"
+
+  app.infrastructure.persistence.model.game.game_in_file_repository:
+    class: App\Infrastructure\Persistence\Model\Game\GameInFileRepository
+    arguments:
+      - "%kernel.root_dir%/Infrastructure/Persistence/LocalData/Game/data.json"

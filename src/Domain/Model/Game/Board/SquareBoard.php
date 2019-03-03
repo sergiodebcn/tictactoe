@@ -62,17 +62,6 @@ class SquareBoard
         return 0 === $xPositionRow % $squareRoot;
     }
 
-    public static function fromArray(array $data): SquareBoard
-    {
-        $cellCollection = new CellCollection();
-
-        foreach ($data['cellCollection'] as $cell) {
-            $cellCollection->add(Cell::fromArray($cell));
-        }
-
-        return new SquareBoard($cellCollection);
-    }
-
     public function newBoardWithMarkedPositionToGivenPlayer(int $xPosition, int $yPosition, Player $player): SquareBoard
     {
         $newCellCollection = new CellCollection();
@@ -206,6 +195,17 @@ class SquareBoard
         }
 
         return null;
+    }
+
+    public static function fromArray(array $data): SquareBoard
+    {
+        $cellCollection = new CellCollection();
+
+        foreach ($data['cellCollection'] as $cell) {
+            $cellCollection->add(Cell::fromArray($cell));
+        }
+
+        return new SquareBoard($cellCollection);
     }
 
     public function toArray(): array

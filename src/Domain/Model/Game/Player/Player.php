@@ -20,16 +20,6 @@ class Player
         $this->movesCount = 0;
     }
 
-    public static function fromArray(array $player): Player
-    {
-        /** @var Player $instance */
-        $instance = (new \ReflectionClass(self::class))->newInstanceWithoutConstructor();
-        $instance->userId = UserId::instance($player['userId']);
-        $instance->movesCount = $player['movesCount'];
-
-        return $instance;
-    }
-
     public function userId(): UserId
     {
         return $this->userId;
@@ -43,6 +33,16 @@ class Player
     public function numberOfMoves(): int
     {
         return $this->movesCount;
+    }
+
+    public static function fromArray(array $player): Player
+    {
+        /** @var Player $instance */
+        $instance = (new \ReflectionClass(self::class))->newInstanceWithoutConstructor();
+        $instance->userId = UserId::instance($player['userId']);
+        $instance->movesCount = $player['movesCount'];
+
+        return $instance;
     }
 
     public function toArray(): array

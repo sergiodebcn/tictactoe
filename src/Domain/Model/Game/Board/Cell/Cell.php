@@ -28,6 +28,26 @@ class Cell
         $this->player = $player;
     }
 
+    public function xPosition(): int
+    {
+        return $this->xPosition;
+    }
+
+    public function yPosition(): int
+    {
+        return $this->yPosition;
+    }
+
+    public function playedBy(): ?Player
+    {
+        return $this->player;
+    }
+
+    public function newCellAssignedToPlayer(Player $player): Cell
+    {
+        return new Cell($this->xPosition, $this->yPosition, $player);
+    }
+
     public static function fromArray(array $data): Cell
     {
         $player = is_null($data['player']) ? null : Player::fromArray($data['player']);
@@ -39,21 +59,6 @@ class Cell
         );
     }
 
-    public function xPosition(): int
-    {
-        return $this->xPosition;
-    }
-
-    public function yPosition(): int
-    {
-        return $this->yPosition;
-    }
-
-    public function newCellAssignedToPlayer(Player $player): Cell
-    {
-        return new Cell($this->xPosition, $this->yPosition, $player);
-    }
-
     public function toArray(): array
     {
         $player = is_null($this->playedBy()) ? null : $this->playedBy()->toArray();
@@ -63,10 +68,5 @@ class Cell
             'yPosition' => $this->yPosition,
             'player' => $player,
         ];
-    }
-
-    public function playedBy(): ?Player
-    {
-        return $this->player;
     }
 }

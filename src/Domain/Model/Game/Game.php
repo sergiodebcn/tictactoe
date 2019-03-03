@@ -87,16 +87,6 @@ class Game
         return $this->playerTwo();
     }
 
-    public function toArray(): array
-    {
-        return [
-            'id' => $this->id->value(),
-            'playerOne' => $this->playerOne->toArray(),
-            'playerTwo' => $this->playerTwo->toArray(),
-            'board' => $this->board->toArray(),
-        ];
-    }
-
     public static function fromArray(array $game): Game
     {
         return new Game(
@@ -105,5 +95,15 @@ class Game
             Player::fromArray($game['playerTwo']),
             SquareBoard::fromArray($game['board'])
         );
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id->value(),
+            'playerOne' => $this->playerOne->toArray(),
+            'playerTwo' => $this->playerTwo->toArray(),
+            'board' => $this->board->toArray(),
+        ];
     }
 }

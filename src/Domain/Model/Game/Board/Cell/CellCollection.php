@@ -27,16 +27,6 @@ class CellCollection implements IteratorAggregate, Countable
         $this->cells[] = $cell;
     }
 
-    public function getIterator(): ArrayIterator
-    {
-        return new ArrayIterator($this->cells);
-    }
-
-    public function count(): int
-    {
-        return count($this->cells);
-    }
-
     public function yAxisCollection($yAxis): CellCollection
     {
         $yAxisCollection = new CellCollection();
@@ -78,6 +68,16 @@ class CellCollection implements IteratorAggregate, Countable
         }
 
         return true;
+    }
+
+    public function getIterator(): ArrayIterator
+    {
+        return new ArrayIterator($this->cells);
+    }
+
+    public function count(): int
+    {
+        return count($this->cells);
     }
 
     public function toArray(): array

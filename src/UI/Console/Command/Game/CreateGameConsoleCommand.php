@@ -48,11 +48,11 @@ class CreateGameConsoleCommand extends ConsoleCommand
             $io->title('Tic tac toe - Create game');
 
             if (is_null($input->getArgument('id'))) {
-                $question = new Question('Please enter a game uuid4 (example afb89091-4530-46f8-ade1-d0b2b2a76929): ');
+                $question = new Question('Please enter a game id in uuid4 (example afb89091-4530-46f8-ade1-d0b2b2a76929): ');
                 $gameId = $helper->ask($input, $output, $question);
-                $question = new Question('Please enter a game uuid4 (example afb89091-4530-46f8-ade1-d0b2b2a76930): ');
+                $question = new Question('Please enter a user id in uuid4 (example afb89091-4530-46f8-ade1-d0b2b2a76930): ');
                 $firstUserId = $helper->ask($input, $output, $question);
-                $question = new Question('Please enter a game uuid4 (example afb89091-4530-46f8-ade1-d0b2b2a76931): ');
+                $question = new Question('Please enter a user id in uuid4 (example afb89091-4530-46f8-ade1-d0b2b2a76931): ');
                 $secondUserId = $helper->ask($input, $output, $question);
             } else {
                 $gameId = $input->getArgument('id');

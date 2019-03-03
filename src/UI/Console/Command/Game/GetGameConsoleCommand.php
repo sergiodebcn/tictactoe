@@ -67,10 +67,13 @@ class GetGameConsoleCommand extends ConsoleCommand
                 $io->text('Winner: No winner');
             } else {
                 $winner = $response->winner();
-                $io->text('Winner'.$winner['userId']);
+                $io->text('Winner '.$winner['userId']);
             }
-            $nextPlayer = $response->nextPlayer();
-            $io->text('Next player user id '.$nextPlayer['userId']);
+
+            if (!$response->finished()) {
+                $nextPlayer = $response->nextPlayer();
+                $io->text('Next player user id '.$nextPlayer['userId']);
+            }
         } catch (UserNotFoundException $e) {
             $output->write('<fg=red>'.$e->getMessage().$e->getFile().'</fg=red>');
         } catch (CreateUserException | \Throwable  $e) {
